@@ -81,6 +81,9 @@ jobs:
           git fetch origin tag "${{ env.tag_name }}"
           git checkout tags/"${{ env.tag_name }}" -f
 
+          git submodule init
+          git submodule update --recursive
+
       - name: Setup Python
         if: ${{ env.move_on == 'true' }}
         uses: actions/setup-python@v6
