@@ -1,2 +1,2 @@
 # numpy-min
-Open Source Computer Vision Library
+The fundamental package for scientific computing with Python
