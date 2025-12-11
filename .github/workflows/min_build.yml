@@ -104,8 +104,8 @@ jobs:
           python -m pip install --upgrade build Cython meson-python
           python -m build --wheel -v -Ccompile-args="-j4" -Csetup-args="-Dallow-noblas=true"
 
-          7z a -t7z -m0=LZMA2 -mmt=on -mx=3 -md=4m -mfb=32 -ms=1g -mqs=on -sccUTF-8 -mtc=on -mta=on -mhe=on `
-            numpy_py${{ matrix.python-version }}.7z `
+          7z a -t7z -m0=LZMA2 -mmt=on -mx=3 -md=4m -mfb=32 -ms=1g -mqs=on -sccUTF-8 -mtc=on -mta=on -mhe=on ^
+            numpy_py${{ matrix.python-version }}.7z ^
             dist
 
       - name: Upload wheel
