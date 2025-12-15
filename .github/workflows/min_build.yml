@@ -95,12 +95,15 @@ jobs:
           architecture: x64
 
       - name: Setup NASM
+        if: ${{ env.move_on == 'true' }}
         uses: ilammy/setup-nasm@v1
 
       - name: Add MSBuild to PATH
+        if: ${{ env.move_on == 'true' }}
         uses: microsoft/setup-msbuild@v2
 
       - name: Build and install
+        if: ${{ env.move_on == 'true' }}
         shell: cmd
         run: |
           call "%ProgramFiles%\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
@@ -113,7 +116,7 @@ jobs:
 
       - name: Upload wheel
         if: ${{ env.move_on == 'true' }}
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v5
         with:
           name: numpy-py${{ matrix.python-version }}
           path: |
